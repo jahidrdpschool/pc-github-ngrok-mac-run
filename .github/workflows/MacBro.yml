@@ -1,4 +1,4 @@
-name: MacRunner
+name: MacBro
 on:
   workflow_dispatch:
 
