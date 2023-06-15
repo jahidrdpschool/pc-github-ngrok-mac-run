@@ -1,0 +1,26 @@
+name: MacBro
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Runner
+    runs-on: macos-latest
+
+    steps:
+      - name: Install and Setup
+        env:
+          NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
+        run: |
+          curl -s -o ST.sh https://raw.githubusercontent.com/jahidrdpschool/pc-github-ngrok-mac/main/ST.sh
+          chmod +x ST.sh
+          ./ST.sh "$NGROK_AUTH_TOKEN"        
+
+      - name: Login Details
+        run: |
+          curl -s -o LI.sh https://raw.githubusercontent.com/jahidrdpschool/pc-github-ngrok-mac/main/LI.sh
+          chmod +x LI.sh
+          bash LI.sh
+
+      - name: Time counting.....
+        run: sleep 21600
